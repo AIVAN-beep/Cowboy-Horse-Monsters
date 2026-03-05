@@ -1475,22 +1475,8 @@ function draw(){
 
 function loop(){update();draw();requestAnimationFrame(loop);}
 loop();
-// Disable inspect / devtools
-document.addEventListener("contextmenu",e=>e.preventDefault());
-document.addEventListener("keydown",e=>{
-  if(e.key==="F12"||
-     (e.ctrlKey&&e.shiftKey&&["I","J","C"].includes(e.key.toUpperCase()))||
-     (e.ctrlKey&&e.key.toUpperCase()==="U")){
-    e.preventDefault();
-    e.stopPropagation();
-  }
-});
-// DevTools open detection (size-based)
-setInterval(()=>{
-  if(window.outerWidth-window.innerWidth>160||window.outerHeight-window.innerHeight>160){
-    document.body.innerHTML="<div style='background:#0a0a1a;color:#f0e6c8;height:100vh;display:flex;align-items:center;justify-content:center;font-family:Georgia;font-size:24px;letter-spacing:4px;'>⚔ Access Denied ⚔</div>";
-  }
-},1000);
+
 </script>
 </body>
 </html>
+
