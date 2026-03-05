@@ -10,7 +10,7 @@ canvas{display:block;cursor:crosshair;}
 #ui{position:absolute;top:20px;left:24px;color:#f0e6c8;font-size:18px;letter-spacing:2px;text-shadow:0 0 10px rgba(255,180,60,0.8);font-variant:small-caps;}
 #coinDisplay{position:absolute;top:48px;left:24px;color:#ffd700;font-size:16px;letter-spacing:2px;text-shadow:0 0 8px #ffaa00;font-variant:small-caps;}
 #weaponDisplay{position:absolute;top:74px;left:24px;color:#c8e6ff;font-size:13px;letter-spacing:2px;text-shadow:0 0 6px #4488ff;font-variant:small-caps;}
-#weaponHUDMobile{position:absolute;bottom:clamp(150px,22vh,180px);left:50%;transform:translateX(-50%);display:none;align-items:center;gap:clamp(4px,1.5vw,8px);z-index:60;pointer-events:none;flex-wrap:wrap;justify-content:center;max-width:90vw;}
+#weaponHUDMobile{position:absolute;bottom:clamp(20px,4vh,40px);left:50%;transform:translateX(-50%);display:none;align-items:center;gap:clamp(4px,1.5vw,8px);z-index:60;pointer-events:none;flex-wrap:wrap;justify-content:center;max-width:90vw;}
 @media(max-width:768px){#weaponHUDMobile{display:flex;}}
 #hintText{position:absolute;bottom:160px;left:50%;transform:translateX(-50%);color:rgba(255,220,120,0.7);font-size:13px;letter-spacing:1px;text-shadow:0 0 8px gold;pointer-events:none;animation:pulse 2s infinite;white-space:nowrap;}
 @media(max-width:600px){#hintText{font-size:10px;bottom:200px;}}
@@ -450,7 +450,7 @@ const moveCanvas=document.getElementById("moveJoystick");
   let moveActive=false,moveTouchId=null,moveBaseX=55,moveBaseY=55,moveThumbX=55,moveThumbY=55;
   // Responsive joystick size
   const vmin=Math.min(window.innerWidth,window.innerHeight);
-  const JR=Math.round(Math.min(42,vmin*0.09));
+  const JR=Math.round(Math.min(58,vmin*0.12));
   const TR=Math.round(JR*0.43);
   const JC=55; // canvas center
   // Resize joystick canvases
