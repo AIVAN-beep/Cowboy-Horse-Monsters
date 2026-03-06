@@ -136,13 +136,16 @@ const canvas=document.getElementById("c");
 const ctx=canvas.getContext("2d");
 
 let GH,GY;
+let GYLocked=false;
 function resize(){
   canvas.width=window.innerWidth;
   canvas.height=window.innerHeight;
   document.body.style.height=window.innerHeight+"px";
   GH=canvas.height;
-  const mob=window.innerWidth<=768;
-  GY=GH-(mob?155:80);
+  if(!GYLocked){
+    const mob=window.innerWidth<=768;
+    GY=GH-(mob?155:80);
+  }
 }
 resize();
 window.addEventListener("resize",resize);
@@ -585,8 +588,8 @@ function equipWeapon(id){
   if(storeOpen)buildStoreUI();
   holdingThrow=false;holdThrowTimer=0;document.getElementById("chargeHUD").style.display="none";
 }
-function openStore(){storeOpen=true;buildStoreUI();document.getElementById("storeOverlay").style.display="flex";}
-function closeStore(){storeOpen=false;document.getElementById("storeOverlay").style.display="none";}
+function openStore(){GYLocked=true;storeOpen=true;buildStoreUI();document.getElementById("storeOverlay").style.display="flex";}
+function closeStore(){storeOpen=false;document.getElementById("storeOverlay").style.display="none";setTimeout(()=>{GYLocked=false;},400);}
 document.getElementById("storeClose").addEventListener("click",closeStore);
 
 // ============================================================
