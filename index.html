@@ -149,6 +149,9 @@ function resize(){
 }
 resize();
 window.addEventListener("resize",resize);
+// Force GY calculation before anything spawns
+const mob=window.innerWidth<=768;
+GY=canvas.height-(mob?155:80);
 
 // ============================================================
 // CACHED GRADIENTS (rebuilt on resize only)
@@ -805,6 +808,11 @@ function killBoss(){
 // ============================================================
 // UPDATE
 // ============================================================
+// Recalculate GY one final time before spawning entities
+(function(){
+  const mob=window.innerWidth<=768;
+  GY=canvas.height-(mob?155:80);
+})();
 setupLevel(false);
 setupMobileControls();
 
